@@ -1,37 +1,27 @@
-## Welcome to GitHub Pages
+## 项目运行说明
 
-You can use the [editor on GitHub](https://github.com/Coerchan/Chuck/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+此项目功能为明星关系查询；参考了刘焕勇老师的智能医药助理问答系统（https://github.com/liuhuanyong/QASystemOnMedicalKG） 的思路，项目分为五部分：
+#### （1）数据爬取存储；
+#### （2）知识图谱构建--对应代码：build_stargraph.py；
+#### （3）问题实体识别关系抽取--对应代码：quesiton_classifier.py；
+#### （4）问题分析--对应代码:question_parser.py；
+#### （5）匹配答案输出--对应代码:answer_search.py。
+此课程涉及知识在后面四步，对于数据爬取这一步就不进行过多说明，爬取后所获得的文档为明星文档：nodes.csv，明星关系文档：relations.csv。
+我所使用的知识图谱为neo4j community,如各位老师、助教们运行代码请提前启动图谱并备份原图谱内容。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### 快速运行
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
 
 ```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+# 1.构建知识图谱（所需数据nodes.csv,relations.csv均在文件中）
+python build_stargraph.py
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# 2.查询问题（现仅能查询单人或双人关系，如“张国荣的好友”、“张国荣的前任”、“张国荣和林青霞的关系”、“杨幂和刘恺威是夫妻吗”）
+python chatbot.py
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Coerchan/Chuck/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
